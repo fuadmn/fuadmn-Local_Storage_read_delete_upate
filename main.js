@@ -23,8 +23,8 @@ form.addEventListener("submit", function (event) {
       textPost: WritePost,
       completed: false,
     };
-    console.log(post);
     addPostTextDOM(post);
+    savePostTextLocalStorage(post);
 
 
 
@@ -49,4 +49,15 @@ function addPostTextDOM(post) {
                     `;
 
   postUl.appendChild(li);
+}
+
+
+function savePostTextLocalStorage(post){
+
+  const allPosts = localStorage.getItem("post");
+
+  console.log(allPosts)
+
+  // localStorage.setItem("Posts",JSON.stringify('post'));
+
 }
