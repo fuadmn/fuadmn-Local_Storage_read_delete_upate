@@ -25,7 +25,7 @@ form.addEventListener("submit", function (event) {
     };
 
     addPostTextDOM(post);
-
+    savePost(post);
 
 
     postTitle.value = "";
@@ -49,4 +49,16 @@ function addPostTextDOM(post) {
                     `;
 
   postUl.appendChild(li);
+}
+
+
+function savePost(post){
+
+
+  const allPost = JSON.parse(localStorage.getItem("posts")) || [];
+  
+  allPost.push(post)
+  
+  localStorage.setItem("posts",JSON.stringify(allPost));
+
 }
