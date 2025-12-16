@@ -23,7 +23,7 @@ form.addEventListener("submit", function (event) {
       textPost: WritePost,
       completed: false,
     };
-    console.log(post);
+
     addPostTextDOM(post);
 
 
@@ -50,5 +50,3 @@ function addPostTextDOM(post) {
 
   postUl.appendChild(li);
 }
-
-gi
