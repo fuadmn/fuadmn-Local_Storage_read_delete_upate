@@ -8,6 +8,20 @@ const WriteYour = document.querySelector("#WriteYour");
 const Write_your = document.querySelector("#Write_your");
 const postUl = document.querySelector("#postUl");
 
+document.addEventListener("DOMContentLoaded",loadPost);
+
+function loadPost(){
+
+  const posts = getPost();
+
+ posts.forEach(post => {
+  addPostTextDOM(post);
+  
+ });
+  
+  
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -55,10 +69,16 @@ function addPostTextDOM(post) {
 function savePost(post){
 
 
-  const allPost = JSON.parse(localStorage.getItem("posts")) || [];
+  const allPost = getPost();
   
   allPost.push(post)
   
   localStorage.setItem("posts",JSON.stringify(allPost));
+
+}
+
+function getPost(){
+    const allPost = JSON.parse(localStorage.getItem("posts")) || [];
+    return allPost;
 
 }
