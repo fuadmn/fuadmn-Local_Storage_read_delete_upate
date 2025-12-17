@@ -63,8 +63,32 @@ function addPostTextDOM(post) {
                     `;
 
   postUl.appendChild(li);
+
+  deltePost(li,post);
+
 }
 
+function deltePost(li,post){
+
+  const delleteBtn = li.querySelector(".delete-btn");
+
+  delleteBtn.addEventListener("click",function(){
+     delteHanle(post.id,li)
+  })
+  
+}
+
+function delteHanle(id,li){
+
+  let posts = getPost();
+
+  posts = posts.filter(post => post.id != id);
+~
+  localStorage.setItem("posts",JSON.stringify(posts));
+  
+  li.remove();
+
+}
 
 function savePost(post){
 
